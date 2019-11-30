@@ -3,8 +3,9 @@ package top.xugx;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import top.xugx.util.CipherUtils;
+import top.xugx.util.CtxHolder;
 
-@SpringBootApplication(scanBasePackages = {"top.xugx","top.xugx.dao"})
+@SpringBootApplication//(scanBasePackages = {"top.xugx","top.xugx.dao"})
 public class XmiApplication {
 
     public static void main(String[] args) {
@@ -15,6 +16,7 @@ public class XmiApplication {
             e.printStackTrace();
         }
         SpringApplication.run(XmiApplication.class, args);
+        System.out.println(CtxHolder.getActiveProfile());
     }
 
 }
