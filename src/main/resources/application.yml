@@ -1,4 +1,12 @@
 server:
-  port: 8000
   servlet:
-    context-path: ""
+    context-path: /xmi
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
