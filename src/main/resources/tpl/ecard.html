@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>ECard</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+        }
+        .block{
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="block">冯老板,你好</div>
+<div id="qrcode"></div>
+<div class="block">
+    <a href="${rurl!}">点我直接访问</a>
+</div>
+<script>
+    jQuery('#qrcode').qrcode("${rurl!}");
+</script>
+</body>
+</html>

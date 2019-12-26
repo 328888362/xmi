@@ -10,3 +10,10 @@ spring:
     multipart:
       max-file-size: 500MB
       max-request-size: 500MB
+  freemarker:
+    template-loader-path: classpath:/tpl
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    suffix: .html
+    cache: false
