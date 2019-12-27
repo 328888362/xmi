@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+import top.xugx.util.CipherUtils;
 import top.xugx.xmi.dto.CodeReQuest;
 import top.xugx.xmi.utils.ECardSignUtil;
 
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,9 +31,11 @@ public class ECardH5Action {
     @Value(value="${ecard.neusoft.code-url}")
     private String codeUrl;
 
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
     @RequestMapping("/code/{password}/{type}")
     public ModelAndView code(@PathVariable(value="type") int type,@PathVariable(value="password") String password) throws Exception{
-        if(!"neusoft".equals(password)){
+        if(!CipherUtils.md5("neusoft"+sdf.format(new Date())).equals(password)){
             return null;
         }
         HttpHeaders headers = new HttpHeaders();
